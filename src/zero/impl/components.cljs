@@ -157,8 +157,8 @@
             (if-not new-val
               (.removeProperty style-obj (name k))
               (.setProperty style-obj (name k) (clj->css-property new-val))))))
-      (when-let [[_ css-prop] (get diff :zero.core/css)]
-        (set! (.-adoptedStyleSheets dom) (->> (conj css-prop host-css) (mapv ->stylesheet-object) to-array)))
+      ;;(when-let [[_ css-prop] (get diff :zero.core/css)]
+       ;; (set! (.-adoptedStyleSheets dom) (->> (conj css-prop host-css) (mapv ->stylesheet-object) to-array)))
       (when-let [listeners-diff (diff :zero.core/on)]
         (patch-listeners dom listeners-diff)))
 
